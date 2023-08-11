@@ -24,7 +24,29 @@ AFTER YOU ARE FINISHED WITH THIS PROBLEM, ASK FOR A CODE REVIEW
 
 function lazyAdder(firstNum) {
   // Your code here
+  let sum = firstNum;
+  let count = 1;
+  
+
+  return function adder(num){
+
+    count++; // Updating the count, meaning we are dealing with the next number
+
+    if(count === 3){
+      return sum + num;
+    }
+
+    sum += num;
+    return adder;
+
+  
 }
+}
+
+let firstAdd = lazyAdder(1);
+let secondAdd = firstAdd(2);
+let sum = secondAdd(3);
+console.log(sum); // prints 6
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {

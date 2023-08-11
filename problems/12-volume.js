@@ -25,7 +25,27 @@ console.log(table2(75)); // STILL prints 6
 ***********************************************************************/
 function recVolume(height) {
   // Your code here
+  let parameters = 1;
+  let volume = height;
+
+  return function multiplier(num){
+
+    parameters++;
+
+    if(parameters <= 3){
+
+      volume *= num;
+      return (parameters === 3) ? volume : multiplier;
+      
+    }
+    return volume;
+  }
 }
+
+let table1 = recVolume(5); // returns a function
+table1(4); // returns a function
+console.log(table1(3)); // prints 60
+console.log(table1(145)); // STILL prints 60
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
